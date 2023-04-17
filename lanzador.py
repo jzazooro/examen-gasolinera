@@ -18,3 +18,5 @@ def main():
     coche_en_repostaje = cola_espera.eliminar_coche()
     cola_repostaje.añadir_coche(coche_en_repostaje)
     print("Coches en cola de repostaje:")
+    for coche in cola_repostaje.cola:
+        print(coche)
