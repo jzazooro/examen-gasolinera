@@ -7,10 +7,10 @@ class Coche:
         self.id_coche = id_coche
         self.estado = estado
         
-    def repostando(self):
-        self.estado = "repostando"
+    def repostandoypago(self):
+        self.estado = "repostando y pagando"
         n = random.randint(5, 10)
-        time.sleep(n)
+        time.sleep(n+3)
         
     def en_cola_espera(self):
         self.estado = "en cola de espera"
@@ -27,7 +27,8 @@ class ColaEspera:
         coche = Coche(self.id_siguiente_coche, "en cola de espera")
         self.cola.append(coche)
         self.id_siguiente_coche += 1
-        time.sleep(5)
+        p=random.randint(1, 15)
+        time.sleep(p)
         
     def eliminar_coche(self):
         coche = self.cola.popleft()
@@ -52,7 +53,7 @@ class ColaDeRepostaje:
             return None
         else:
             coche = self.cola.pop(0)
-            coche.estado = "repostando"
+            coche.estado = "repostando y pagando"
             return coche
 
     def __len__(self):
